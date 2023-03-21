@@ -36,7 +36,7 @@ server.post("/demo", async (req, res) => {
   let user = new User();
   const { name, email, query } = req.body;
   if (!name || !email || !query) {
-    return res.status(400).json({ message: "Fuck you!" });
+    return res.status(400).json({ message: "something went wrong!" });
   }
   try {
     user.name = name;
@@ -45,7 +45,7 @@ server.post("/demo", async (req, res) => {
     const doc = await user.save();
     return res.json(doc);
   } catch (error) {
-    return res.status(500).json({ message: "Its not you...its me" });
+    return res.status(500).json({ message: "something went wrong" });
   }
 });
 
